@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Videojogos @ Lusófona - Mockup</title>
+  <style>
+    /* -------------------- RESET / BASIC STYLES -------------------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+      color: #007BFF;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* -------------------- HEADER / NAV -------------------- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #f5f5f5;
+      border-bottom: 1px solid #ddd;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    nav li {
+      cursor: pointer;
+    }
+
+    /* -------------------- HERO SECTION -------------------- */
+    #hero {
+      position: relative;
+      background: url('https://via.placeholder.com/1200x500/eeeeee/555555/?text=Hero+Image') no-repeat center center;
+      background-size: cover;
+      padding: 4rem 2rem;
+      text-align: center;
+      color: #fff;
+    }
+    #hero .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    #hero .hero-content {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    #hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    #hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .hero-buttons a {
+      display: inline-block;
+      margin: 0 0.5rem;
+      padding: 0.75rem 1.25rem;
+      background-color: #007BFF;
+      color: #fff;
+      border-radius: 4px;
+    }
+    .hero-buttons a:hover {
+      background-color: #0056b3;
+    }
+
+    /* -------------------- PROGRAM HIGHLIGHTS -------------------- */
+    #programs {
+      background-color: #fafafa;
+      padding: 2rem;
+      text-align: center;
+    }
+    #programs h2 {
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+    .program-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .program-card {
+      background-color: #fff;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      border-radius: 4px;
+      flex: 1 1 250px;
+      max-width: 300px;
+      padding: 1rem;
+    }
+    .program-card img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+    .program-card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .program-card p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    .program-card a {
+      font-weight: bold;
+      color: #007BFF;
+    }
+
+    /* -------------------- SHOWCASE -------------------- */
+    #showcase {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    #showcase h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+    .project-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .project-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      width: 280px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .project-card img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 0.75rem;
+    }
+
+    /* -------------------- WHY STUDY HERE -------------------- */
+    #why-study {
+      background-color: #f0f0f0;
+      padding: 2rem;
+      text-align: center;
+    }
+    #why-study h2 {
+      margin-bottom: 1.5rem;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .feature {
+      width: 200px;
+    }
+    .feature img {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 1rem;
+    }
+    .feature h4 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* -------------------- TESTIMONIALS -------------------- */
+    #testimonials {
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    #testimonials h2 {
+      margin-bottom: 1.5rem;
+    }
+    .testimonial {
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+    .testimonial .author {
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    /* -------------------- ADMISSIONS -------------------- */
+    #admissions {
+      background-color: #fafafa;
+      padding: 2rem;
+      text-align: center;
+    }
+    #admissions h2 {
+      margin-bottom: 1.5rem;
+    }
+    #admissions .admission-info {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    #admissions .apply-button {
+      display: inline-block;
+      padding: 0.8rem 1.2rem;
+      background-color: #007BFF;
+      color: #fff;
+      border-radius: 4px;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    #admissions .apply-button:hover {
+      background-color: #0056b3;
+    }
+
+    /* -------------------- FOOTER -------------------- */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 1.5rem 2rem;
+    }
+    footer .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    footer .footer-content .footer-links,
+    footer .footer-content .social-media {
+      margin: 0.5rem 0;
+    }
+    footer .footer-content .social-media a {
+      margin-right: 1rem;
+      color: #fff;
+    }
+    .small-text {
+      font-size: 0.8rem;
+      color: #ccc;
+    }
+
+    /* -------------------- RESPONSIVE EXAMPLE -------------------- */
+    @media (max-width: 768px) {
+      .program-cards,
+      .project-grid,
+      .features,
+      .footer-content {
+        flex-direction: column;
+        align-items: center;
+      }
+      .feature {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER / NAV ==================== -->
+  <header>
+    <div class="logo">Videojogos @ Lusófona</div>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>Programs</li>
+        <li>Showcase</li>
+        <li>Events</li>
+        <li>Admissions</li>
+        <li>EN/PT</li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Shape the Future of Play & Innovation</h1>
+      <p>Join our community of creators, designers, and innovators in the heart of Portugal.</p>
+      <div class="hero-buttons">
+        <a href="#">Explore Programs</a>
+        <a href="#">Apply Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROGRAM HIGHLIGHTS ==================== -->
+  <section id="programs">
+    <h2>Explore Our Programs</h2>
+    <div class="program-cards">
+      <!-- Program Card 1 -->
+      <div class="program-card">
+        <img src="https://via.placeholder.com/300x150/cccccc/555555/?text=Bachelor+Image" alt="Bachelor Program" />
+        <h3>Bachelor in Videogames</h3>
+        <p>A comprehensive program covering Game Design, VR, AR, AI, 3D Art & more.</p>
+        <a href="#">Learn More</a>
+      </div>
+      <!-- Program Card 2 -->
+      <div class="program-card">
+        <img src="https://via.placeholder.com/300x150/cccccc/555555/?text=Master+Image" alt="Master Program" />
+        <h3>Master in Game Design & Playable Media</h3>
+        <p>Create innovative, experimental, and purposeful games across platforms.</p>
+        <a href="#">Learn More</a>
+      </div>
+      <!-- Program Card 3 -->
+      <div class="program-card">
+        <img src="https://via.placeholder.com/300x150/cccccc/555555/?text=AI+Image" alt="AI Program" />
+        <h3>Master in AI for Games</h3>
+        <p>Push the boundaries of gaming with cutting-edge Artificial Intelligence.</p>
+        <a href="#">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SHOWCASE ==================== -->
+  <section id="showcase">
+    <h2>Student Projects & Highlights</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://via.placeholder.com/280x150/cccccc/555555/?text=Project+1" alt="Project 1" />
+        <h4>Project Title #1</h4>
+        <p>Short description of the game or interactive media project.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/280x150/cccccc/555555/?text=Project+2" alt="Project 2" />
+        <h4>Project Title #2</h4>
+        <p>Short description of another student creation.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/280x150/cccccc/555555/?text=Project+3" alt="Project 3" />
+        <h4>Project Title #3</h4>
+        <p>Another highlight showcasing innovation or creativity.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/280x150/cccccc/555555/?text=Project+4" alt="Project 4" />
+        <h4>Project Title #4</h4>
+        <p>A brief overview of the project's objectives or outcome.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== WHY STUDY HERE ==================== -->
+  <section id="why-study">
+    <h2>Why Study Games at Lusófona?</h2>
+    <div class="features">
+      <div class="feature">
+        <img src="https://via.placeholder.com/64x64/cccccc/555555/?text=Labs" alt="Labs Icon" />
+        <h4>State-of-the-Art Labs</h4>
+        <p>Access modern facilities, VR/AR setups, motion capture, and more.</p>
+      </div>
+      <div class="feature">
+        <img src="https://via.placeholder.com/64x64/cccccc/555555/?text=Faculty" alt="Faculty Icon" />
+        <h4>Experienced Faculty</h4>
+        <p>Learn from industry veterans and researchers in diverse fields.</p>
+      </div>
+      <div class="feature">
+        <img src="https://via.placeholder.com/64x64/cccccc/555555/?text=Global" alt="Global Icon" />
+        <h4>International Community</h4>
+        <p>Study alongside a multicultural cohort in vibrant Lisbon.</p>
+      </div>
+      <div class="feature">
+        <img src="https://via.placeholder.com/64x64/cccccc/555555/?text=Hands-on" alt="Hands-on Icon" />
+        <h4>Hands-On Projects</h4>
+        <p>Participate in game jams, prototyping modules, and industry collaborations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section id="testimonials">
+    <h2>Voices from Our Community</h2>
+    <div class="testimonial">
+      “My time at Lusófona opened the doors to an internship at a major game studio.”
+      <div class="author">– John Doe, Bachelor in Videogames (2022)</div>
+    </div>
+    <div class="testimonial">
+      “The master’s program pushed me to explore new ways of designing and playing games.”
+      <div class="author">– Jane Smith, Master in Game Design (2021)</div>
+    </div>
+  </section>
+
+  <!-- ==================== ADMISSIONS ==================== -->
+  <section id="admissions">
+    <h2>Ready to Apply?</h2>
+    <div class="admission-info">
+      <p><strong>Requirements:</strong> Portfolio (preferred), language proficiency, transcripts.</p>
+      <p><strong>Deadlines:</strong> Applications typically open in March and close in June. Late admissions possible.</p>
+      <p><strong>International Students:</strong> Support with visas, housing, and integration. Scholarships available.</p>
+    </div>
+    <a href="#" class="apply-button">Apply Now</a>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <p>Department of Digital Games, Universidade Lusófona</p>
+        <p>1234 Main St, Lisbon, Portugal</p>
+        <p>Email: <a href="mailto:info@ulusofona.pt">info@ulusofona.pt</a> | Phone: +351 123 456 789</p>
+      </div>
+      <div class="social-media">
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+    <div class="small-text">© 2025 Universidade Lusófona - All Rights Reserved</div>
+  </footer>
+
+</body>
+</html>
